@@ -18,7 +18,8 @@ V kroku 7 nase trenovacie a testovacie data presunieme do foldru pod nazvom: new
 
 Dat je v skutku vela, som to prehnal, preto som pouzil cloudovu sluzbu cez tento referal link, kde som dostal 10e na ucet co mi stacilo na natrenovanie: Paperspace GPUs in the cloud $10 referral link: https://goo.gl/sY3M7Y 
 
-Hyperparametre sa nachadzaju v dir nmt-chatbot/setup/settings, ale pre jednoduchost ich sem nakopcim:# hparams
+Hyperparametre sa nachadzaju v dir nmt-chatbot/setup/settings, kvoli dlzke trenovania som v dobe pisania reportu pouzil defaultne. Da sa vyhrat s vocab_size, 15k size potrebuje cca 4GB RAM, ale optimalne je 100k size.
+
 hparams = {
     'attention': 'scaled_luong',
     'src': 'from',
@@ -31,12 +32,6 @@ hparams = {
     'num_train_steps': 500000,
     'num_layers': 2,
     'num_units': 512,
-#    'batch_size': 128,
-#    'override_loaded_hparams': True,
-#    'decay_factor': 0.99998,
-#    'decay_steps': 1,
-#    'residual': True,
-#    'start_decay_step': 1,
     'optimizer': 'adam',
     'encoder_type': 'bi',
     'learning_rate':0.001,
@@ -44,3 +39,4 @@ hparams = {
     'length_penalty_weight': 1.0,
     'num_translations_per_input': 10
     
+}
